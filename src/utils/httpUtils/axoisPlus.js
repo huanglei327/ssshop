@@ -17,7 +17,7 @@ axios.defaults.baseURL = `https://www.ssstechinfo.top`
 axios.interceptors.request.use(
   config => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"))
-    
+    console.log(config)
     return config;
   },
   err => {
@@ -27,8 +27,7 @@ axios.interceptors.request.use(
 // http response 拦截器
 axios.interceptors.response.use(
   response => {
-    
-    return response;
+    return response
   },
   err => {
     //Indicator.close();
@@ -59,12 +58,11 @@ axios.interceptors.response.use(
           break
         case 404:
           Toast.fail({
-            message: `请求地址出错 ${err.response.config.url}`,
+            message: `请求地址出错`, //${err.response.config.url}
             position: 'bottom',
             duration: 5000
           });
           break
-
         case 408:
           Toast.fail({
             message: '请求超时(408)',

@@ -29,6 +29,16 @@ export default new Router({
       path: '/userIndex',
       name: 'userIndex',
       component: userIndex
-    }
+    },
+    {
+      path: '/orderIndex',
+      name: 'orderIndex',
+      component: () => import(/* webpackChunkName: "detail" */ '@/views/user/order/index.vue')
+    },
+    {
+      path: '/commodityList',
+      name: 'commodityList',
+      component: () => import(/* webpackChunkName: "detail" */ '@/views/classify/commodity/index.vue')
+    },
   ]
 })

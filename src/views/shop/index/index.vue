@@ -11,7 +11,7 @@ export default {
   components: {
     tabbarPage
   },
-  data() {
+  data () {
     return {
       msg: '购物车'
     }

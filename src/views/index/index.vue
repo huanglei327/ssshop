@@ -1,9 +1,14 @@
 <template>
   <div>
     <div class="home-swiper">
-      <van-swipe :autoplay="3000" indicator-color="white">
-        <van-swipe-item v-for="(item,index) in adList" :key="index">
-          <img :src="item.imageUrl" class="slide-image" />
+      <van-swipe :autoplay="3000"
+                 indicator-color="white">
+        <van-swipe-item v-for="(item,index) in adList"
+                        :key="index">
+          <router-link to="/commodityList">
+            <img :src="item.imageUrl"
+                 class="slide-image" />
+          </router-link>
         </van-swipe-item>
       </van-swipe>
     </div>

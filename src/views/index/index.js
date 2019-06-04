@@ -5,22 +5,22 @@ export default {
   components: {
     tabbarPage
   },
-  data() {
+  data () {
     return {
       adList: []
     }
   },
-  mounted() {
+  mounted () {
     this.getSwipetInfo()
   },
   methods: {
-    goclass() {
+    goclass () {
       this.$router.push({
         //你需要接受路由的参数再跳转
         path: '/classIndex'
       })
     },
-    getSwipetInfo() {
+    getSwipetInfo () {
       const that = this
       const c = res => {
         that.adList = res.data.adList

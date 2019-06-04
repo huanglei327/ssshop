@@ -1,31 +1,45 @@
 <template>
   <div>
-    <van-tabbar v-model="active" @change="tabChange" style="z-index:3000;">
+    <van-tabbar v-model="active"
+                @change="tabChange"
+                style="z-index:3000;">
       <van-tabbar-item>
-        <span slot-scope="props" :class="props.active ? 'tabColor' : 'tabColorh'">首页</span>
-        <img slot="icon" slot-scope="props" :src="props.active ? icon.home_b : icon.home_a">
+        <span slot-scope="props"
+              :class="props.active ? 'tabColor' : 'tabColorh'">首页</span>
+        <img slot="icon"
+             slot-scope="props"
+             :src="props.active ? icon.home_b : icon.home_a">
       </van-tabbar-item>
       <van-tabbar-item>
-        <span slot-scope="props" :class="props.active ? 'tabColor' : 'tabColorh'">分类</span>
-        <img slot="icon" slot-scope="props" :src="props.active ? icon.class_b : icon.class_a">
+        <span slot-scope="props"
+              :class="props.active ? 'tabColor' : 'tabColorh'">分类</span>
+        <img slot="icon"
+             slot-scope="props"
+             :src="props.active ? icon.class_b : icon.class_a">
       </van-tabbar-item>
       <van-tabbar-item>
-        <span slot-scope="props" :class="props.active ? 'tabColor' : 'tabColorh'">购物车</span>
-        <img slot="icon" slot-scope="props" :src="props.active ? icon.shop_b : icon.shop_a">
+        <span slot-scope="props"
+              :class="props.active ? 'tabColor' : 'tabColorh'">购物车</span>
+        <img slot="icon"
+             slot-scope="props"
+             :src="props.active ? icon.shop_b : icon.shop_a">
       </van-tabbar-item>
       <van-tabbar-item>
-        <span slot-scope="props" :class="props.active ? 'tabColor' : 'tabColorh'">个人</span>
-        <img slot="icon" slot-scope="props" :src="props.active ? icon.user_b : icon.user_a">
+        <span slot-scope="props"
+              :class="props.active ? 'tabColor' : 'tabColorh'">个人</span>
+        <img slot="icon"
+             slot-scope="props"
+             :src="props.active ? icon.user_b : icon.user_a">
       </van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
 
 <script>
- 
+
 export default {
   props: ['state'],
-  data() {
+  data () {
     return {
       icon: {
         home_a: require('@/assets/images/tabbar/icon-home-a.png'),
@@ -40,11 +54,11 @@ export default {
       active: 0
     }
   },
-  created() {
+  created () {
     this.active = parseInt(this.state)
   },
   methods: {
-    tabChange(event) {
+    tabChange (event) {
       var url = '/'
       switch (event) {
         case 0:
