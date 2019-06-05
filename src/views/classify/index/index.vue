@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="left"
-         v-show="false">
+
+    <div class="left">
       <div v-for="(item,index) in list"
            :key="index"
            @click="bindActive(index)"
@@ -9,8 +9,7 @@
         {{item.name}}
       </div>
     </div>
-    <div class="right"
-         v-show="false">
+    <div class="right">
       <div v-for="(item,index) in list"
            :key="index"
            v-show="active === index"
@@ -25,10 +24,12 @@
              :key="indexc"
              class="category">
           <div class="brand">
-            <div class="item">
-              <img :src="c.prettyBannerUrl" />
-              <div>{{c.name}}</div>
-            </div>
+            <router-link :to="{path:'/commodityList',query:{categoryId:c.id}}">
+              <div class="item">
+                <img :src="c.prettyBannerUrl" />
+                <div>{{c.name}}</div>
+              </div>
+            </router-link>
           </div>
         </div>
       </div>

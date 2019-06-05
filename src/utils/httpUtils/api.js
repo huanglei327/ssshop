@@ -17,3 +17,14 @@ export function GetGoodsListApi (param) {
   const apiName = 'api/goods/list'
   return post(apiName, param)
 }
+//获取商品详情
+export function GetGoodsDetailsApi (param) {
+  const apiName = 'api/goods/detail'
+  return post(apiName, param)
+}
+
+//获取推荐
+export function GetRecommendApi (param) {
+  const apiName = 'api/index/showForU'
+  return post(apiName, param)
+}

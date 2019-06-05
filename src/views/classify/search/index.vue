@@ -1,32 +1,23 @@
 <template>
-  <div class="container">
-    <div>
-
-      <div class=" search-content">
-        <div class="main-title">
-          <div>历史搜索</div>
-          <div class="right"
-               @click="goCommodity">
-            <div class="u-name"
-                 @click="delList"> 清除</div>
-            <div class="u-icon">
-              <van-icon name="arrow" />
-            </div>
-          </div>
-        </div>
-        <div>
-          <div v-if="searchValues.length>0"
-               class="se-list">
-            <div v-for="(item,index) in searchValues"
-                 :key="index">
-              {{item}}
-            </div>
-          </div>
-          <div v-else
-               class="se-list">
-            暂无搜索记录
-          </div>
-        </div>
+  <div class="search-content">
+    <van-search v-model="values"
+                placeholder="请输入搜索关键词"
+                show-action
+                shape="round"
+                @search="onSearch">
+      <div slot="action"
+           @click="onSearch">搜索</div>
+    </van-search>
+    <div class="search-main">
+      <div class="left">历史搜索</div>
+      <div class="right"
+           @click="delList">清空</div>
+    </div>
+    <div v-if="searchValues.length>0"
+         class="se-list">
+      <div v-for="(item,index) in searchValues"
+           :key="index">
+        {{item}}
       </div>
     </div>
   </div>
@@ -43,23 +34,30 @@ export default {
   },
   computed: {
     ...mapState({
-      systemInfo: state => state.systemInfo,
       searchValues: state => state.searchValues
     })
   },
   created () {
     this.values = ''
+    console.log(this.searchValues)
   },
   methods: {
+    onSearch () {
+      console.log(this.values)
+      if (this.values !== '') {
+        this.$store.commit("UpSearchs", this.values)
+        this.values = ''
+      }
+    },
     onChange (event) {
       this.values = event.mp.detail;
     },
     onclick () {
-     // this.$store.commit("saveSearchValues", this.values)
+      // this.$store.commit("saveSearchValues", this.values)
       //wx.redirectTo({ url: '/pages/commodity/index/main?keyword=' + this.values })
     },
     delList () {
-      //this.$store.commit("clearSearchValues");
+      this.$store.commit("DelSearchs");
     }
   }
 };
@@ -73,6 +71,16 @@ export default {
 .search-content {
   width: 100%;
   background: white;
+  .search-main {
+    display: flex;
+    width: 100%;
+    .left {
+      flex: 1;
+    }
+    .right {
+      width: 40px;
+    }
+  }
   .se-list {
     display: flex;
     padding: 10px;

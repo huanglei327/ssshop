@@ -6,7 +6,8 @@ import * as getters from './getters';
 
 let state = {
   userInfo: {},
-  shopCart: []
+  shopCart: [],
+  searchValues: getSearchs()
 }
 
 
@@ -18,3 +19,11 @@ const store = new Vuex.Store({
   mutations
 })
 export default store;
+
+function getSearchs () {
+  let searchs = JSON.parse(localStorage.getItem('searchValues'))
+  if (searchs) {
+    return searchs
+  }
+  return []
+}

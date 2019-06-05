@@ -33,12 +33,21 @@ export default new Router({
     {
       path: '/orderIndex',
       name: 'orderIndex',
-      component: () => import(/* webpackChunkName: "detail" */ '@/views/user/order/index.vue')
+      component: () => import('@/views/user/order/index.vue')
     },
     {
       path: '/commodityList',
       name: 'commodityList',
-      component: () => import(/* webpackChunkName: "detail" */ '@/views/classify/commodity/index.vue')
+      component: () => import('@/views/classify/commodity/index.vue')
+    },
+    {
+      path: '/details',
+      name: 'details',
+      component: () => import('@/views/classify/details/index.vue')
+    }, {
+      path: '/search',
+      name: 'search',
+      component: () => import('@/views/classify/search/index.vue')
     },
   ]
 })

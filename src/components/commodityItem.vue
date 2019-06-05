@@ -24,7 +24,17 @@
 
 <script>
 export default {
-  props: ["items"]
+  props: ["items"],
+  methods: {
+    GoDetails (item) {
+      this.$router.push({
+        path: '/details',
+        query: {
+          goodId: item.id
+        }
+      })
+    }
+  }
 }
 </script>
 <style lang="less">
@@ -36,13 +46,14 @@ export default {
     .c-single {
       padding: 5px;
       .c-img {
-        background: #f5f5f5;
+        background: @bgF5;
         width: 100%;
         position: relative;
+        padding-bottom: 10px;
         .c-orignTitle {
           position: absolute;
           bottom: 0;
-          left: 0;
+          left: 3px;
           width: 100%;
           height: 25px;
           line-height: 25px;
